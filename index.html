@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090f">
+<title>AI VIDEO HUB — عالم فيديوهات الذكاء الاصطناعي</title>
+<style>
+:root{--bg:#09090f;--panel:#14141f;--panel2:#1b1b29;--text:#f5f5fb;--muted:#a4a4b8;--accent:#8b5cf6;--accent2:#ec4899;--line:#29293a;--green:#35d39a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#17112c 0%,var(--bg) 48%);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}a{color:inherit;text-decoration:none}.wrap{max-width:1250px;margin:auto;padding:0 18px}
+header{position:sticky;top:0;z-index:10;background:#09090feF;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.top{min-height:70px;display:flex;align-items:center;gap:18px}.logo{font-size:20px;font-weight:900;white-space:nowrap;letter-spacing:-.5px}.logo b{color:#a78bfa}.search{flex:1;position:relative}.search input{width:100%;background:#171722;border:1px solid #303044;color:white;border-radius:13px;padding:12px 42px 12px 14px;outline:none}.search:before{content:"⌕";position:absolute;right:14px;top:4px;font-size:28px;color:var(--muted)}.btn{background:linear-gradient(110deg,var(--accent),var(--accent2));color:white;border-radius:12px;padding:11px 15px;font-weight:750}.btn.ghost{background:#202031;border:1px solid #35354b}.btn.small{padding:8px 11px;font-size:13px}.avatar{width:38px;height:38px;border-radius:50%;background:#302449;color:#d9c8ff;font-weight:800}
+nav{display:flex;gap:8px;overflow:auto;padding:0 0 13px;scrollbar-width:none}nav button,.chip{white-space:nowrap;background:transparent;color:var(--muted);padding:8px 13px;border-radius:10px}nav button.active,nav button:hover{background:#29203e;color:white}
+.hero{margin:22px 0 28px;min-height:310px;border-radius:24px;overflow:hidden;position:relative;display:flex;align-items:end;padding:clamp(22px,5vw,48px);background:linear-gradient(90deg,rgba(7,7,14,.95),rgba(7,7,14,.35)),linear-gradient(0deg,rgba(7,7,14,.65),transparent),url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1600&q=85') center/cover;border:1px solid #38304d}.hero-content{max-width:620px}.eyebrow{color:#c4b5fd;font-size:12px;font-weight:800;letter-spacing:1.4px}.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.1;margin:12px 0}.hero p{color:#d1d0df;line-height:1.8;max-width:540px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:27px 0 15px}.section-head h2{font-size:21px;margin:0}.section-head small{color:var(--muted)}
+.filters{display:flex;gap:8px;overflow:auto;margin-bottom:16px;padding-bottom:3px}.filters button{background:#171722;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:8px 14px;white-space:nowrap}.filters button.active{background:#3a245f;color:#fff;border-color:#7651bb}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}.card{background:var(--panel);border:1px solid #242436;border-radius:16px;overflow:hidden;transition:transform .2s,border .2s}.card:hover{transform:translateY(-3px);border-color:#65508e}.thumb{position:relative;aspect-ratio:16/10;background:#252238;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;display:block}.play{position:absolute;inset:0;display:grid;place-items:center;background:#0002;font-size:38px;text-shadow:0 2px 12px #000}.duration{position:absolute;bottom:9px;left:9px;background:#050509d9;border-radius:6px;padding:3px 7px;font-size:11px}.cardbody{padding:13px}.card h3{font-size:15px;margin:0 0 8px;line-height:1.5}.meta{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:6px}.tag{display:inline-block;font-size:11px;color:#d9c7ff;background:#2b2042;border-radius:6px;padding:4px 7px;margin-top:10px}
+.empty{padding:40px;text-align:center;color:var(--muted);grid-column:1/-1;background:var(--panel);border-radius:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;margin:24px 0}.panel h2{margin-top:0}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:13px;color:#c7c7d8}.field input,.field select,.field textarea{width:100%;padding:12px;background:#0f0f18;border:1px solid #333348;border-radius:10px;color:white;outline:none}.field textarea{min-height:95px;resize:vertical}.notice{font-size:13px;line-height:1.8;color:#d6c9ff;background:#211a32;border:1px solid #40305e;padding:12px;border-radius:10px}.muted{color:var(--muted)}.hidden{display:none!important}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.tabs button{background:#202031;color:#ccc;padding:9px 12px;border-radius:9px}.tabs button.active{background:#49306e;color:#fff}.video-frame{width:100%;aspect-ratio:16/9;background:#05050a;border-radius:14px;overflow:hidden}.video-frame video{width:100%;height:100%;object-fit:contain}.video-frame iframe{width:100%;height:100%;border:0}footer{margin-top:50px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:13px}.footerrow{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid #35354a;padding:6px 10px;border-radius:999px;color:#c7c7d8;font-size:12px}
+dialog{background:#14141f;color:white;border:1px solid #41415a;border-radius:18px;width:min(650px,calc(100% - 24px));padding:20px}dialog::backdrop{background:#000b;backdrop-filter:blur(4px)}.modalhead{display:flex;justify-content:space-between;gap:12px;align-items:center}.close{background:#2b2b3b;color:white;border-radius:8px;padding:7px 10px}
+@media(max-width:950px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.top{gap:10px}.logo{font-size:17px}}
+@media(max-width:650px){.wrap{padding:0 12px}.top{min-height:62px;flex-wrap:wrap;padding:10px 0}.logo{flex:1}.search{order:3;flex-basis:100%}.top>.btn{padding:9px 11px;font-size:12px}.hero{min-height:350px;margin-top:15px;border-radius:18px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cardbody{padding:10px}.card h3{font-size:13px}.meta{font-size:11px;flex-direction:column}.section-head h2{font-size:18px}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.panel{padding:14px}.hero p{font-size:14px}}
+@media(max-width:370px){.grid{grid-template-columns:1fr}.hero h1{font-size:29px}}
+.st-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}.st-grid .panel{margin:0}
+.st-composer textarea{width:100%;padding:12px;background:#0f0f18;border:1px solid #333348;border-radius:10px;color:white;outline:none;resize:vertical}.st-composer .field label{display:flex;justify-content:space-between}
+.st-quick{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}.chip{border:1px solid var(--line)!important;background:#171722!important}
+.st-ctl{margin:14px 0}.st-ctl>span{display:block;font-size:13px;margin-bottom:7px}.st-opts{display:flex;flex-wrap:wrap;gap:8px}
+.st-opts button{background:#171722;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:8px 14px}.st-opts button.sel{background:#3a245f;color:#fff;border-color:#7651bb}.st-opts button:disabled{opacity:.5;cursor:not-allowed}
+.st-gen{width:100%;margin-top:6px;padding:14px;font-size:16px}.st-gen.cancel{background:#3b2330}
+.st-ptop{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-bottom:10px}
+.st-stage{background:#0f0f18;border:1px solid var(--line);border-radius:14px;min-height:260px;display:grid;place-items:center;overflow:hidden;margin-bottom:12px}.st-stage video{width:100%;max-height:480px;display:block}
+.st-empty,.st-loading{text-align:center;color:var(--muted);padding:30px;line-height:1.9}.st-empty small{font-size:12px}
+.st-spin{width:42px;height:42px;border-radius:50%;border:4px solid #35354b;border-top-color:var(--accent);animation:stspin 1s linear infinite;margin:0 auto 12px}@keyframes stspin{to{transform:rotate(360deg)}}
+.st-error{margin-top:12px;background:#3a1b27;border:1px solid #7a2e46;color:#ffd1dc;padding:12px;border-radius:10px;font-size:14px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.st-error.hidden{display:none!important}
+details{border-bottom:1px solid var(--line);padding:10px 0}summary{cursor:pointer;font-weight:700}
+@media(max-width:850px){.st-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <div class="top">
+   <a class="logo" href="#" onclick="showPage('home');return false">AI <b>VIDEO</b> HUB</a>
+   <div class="search"><input id="searchInput" type="search" placeholder="قلب على فيديو، أنمي، أو تصنيف..." aria-label="بحث"></div>
+   <button class="btn small" onclick="showPage('upload')">＋ رفع فيديو</button>
+   <button class="avatar" id="accountBtn" onclick="openAccount()" aria-label="الحساب">؟</button>
+  </div>
+  <nav id="mainNav">
+   <button class="active" data-page="home" onclick="showPage('home')">الرئيسية</button>
+   <button data-page="videos" onclick="showPage('videos')">الفيديوهات</button>
+   <button data-page="studio" onclick="showPage('studio')">استوديو الفيديو</button>
+   <button data-page="create" onclick="showPage('create')">صناعة AI</button>
+   <button data-page="upload" onclick="showPage('upload')">رفع فيديو</button>
+   <button data-page="account" onclick="showPage('account')">حسابي</button>
+   <button data-page="admin" onclick="showPage('admin')">الإدارة</button>
+  </nav>
+ </div>
+</header>
+<main class="wrap">
+ <section id="page-home">
+  <div class="hero">
+   <div class="hero-content">
+    <div class="eyebrow">YOUR NEXT AI OBSESSION</div>
+    <h1>اكتشف عالماً<br>من فيديوهات الذكاء الاصطناعي</h1>
+    <p>شاهد الإبداع، اكتشف صناع المحتوى، وشارك فيديوهاتك في مكان واحد. عالم AI ديالك كيبدا من هنا.</p>
+    <div class="actions"><button class="btn" onclick="showPage('videos')">▶ اكتشف الفيديوهات</button><button class="btn ghost" onclick="showPage('create')">✦ جرّب صناعة AI</button></div>
+   </div>
+  </div>
+  <div class="section-head"><h2>🔥 مختارة ليك</h2><small>محتوى تجريبي قابل للتبديل</small></div>
+  <div class="grid" id="featuredGrid"></div>
+  <div class="section-head"><h2>✨ شنو تقدر دير هنا؟</h2></div>
+  <div class="grid">
+   <article class="card"><div class="cardbody"><div style="font-size:28px">🎬</div><h3>شاهد الفيديوهات</h3><p class="muted">اكتشف محتوى متنوع وروابط الفيديوهات.</p><button class="btn small" onclick="showPage('videos')">تصفح</button></div></article>
+   <article class="card"><div class="cardbody"><div style="font-size:28px">🪄</div><h3>صناعة فيديو بالـAI</h3><p class="muted">حضّر وصفك وانطلق إلى أداة التوليد.</p><button class="btn small" onclick="showPage('create')">ابدأ</button></div></article>
+   <article class="card"><div class="cardbody"><div style="font-size:28px">⬆️</div><h3>شارك فيديوك</h3><p class="muted">أضف فيديو من جهازك للتجربة المحلية.</p><button class="btn small" onclick="showPage('upload')">رفع فيديو</button></div></article>
+   <article class="card"><div class="cardbody"><div style="font-size:28px">👤</div><h3>الحساب والإدارة</h3><p class="muted">واجهة أولية للحساب ولوحة المدير.</p><button class="btn small" onclick="showPage('account')">فتح الحساب</button></div></article>
+  </div>
+ </section>
+ <section id="page-videos" class="hidden">
+  <div class="section-head"><h2>مكتبة الفيديوهات</h2><span class="pill" id="videoCount">0 فيديو</span></div>
+  <div class="filters" id="filters"></div><div class="grid" id="videosGrid"></div>
+ </section>
+ <section id="page-studio" class="hidden">
+  <div class="section-head"><h2>استوديو توليد الفيديو</h2><button class="pill" id="stKeyBtn" onclick="stOpenKey()">🔑 <span id="stKeyLabel">ربط API</span></button></div>
+  <div class="st-grid">
+   <div class="panel st-composer">
+    <div class="field full"><label for="stPrompt">البرومبت ديالك <small class="muted" id="stCount">0 / 800</small></label>
+     <textarea id="stPrompt" maxlength="800" rows="5" placeholder="مثلاً: قطة صغيرة كتجري وسط حدائق مَنارة فمراكش، الشمس ذهبية، الكاميرا كتبعها بشوية…"></textarea></div>
+    <div class="actions"><button class="btn ghost small" onclick="stAddDetails()">✨ زيد تفاصيل سينمائية</button></div>
+    <div class="st-quick"><span class="muted">جرب:</span><button class="chip" onclick="stSample(0)">رمال كتتنفّس</button><button class="chip" onclick="stSample(1)">بحر خارج الزمن</button></div>
+    <div class="st-ctl"><span class="muted">الستايل</span><div class="st-opts" id="stStyle"></div></div>
+    <div class="st-ctl"><span class="muted">المقاس</span><div class="st-opts" id="stAspect" dir="ltr"></div></div>
+    <div class="st-ctl"><span class="muted">المدة</span><div class="st-opts" id="stDuration"></div></div>
+    <div class="st-ctl"><span class="muted">الموديل</span><div class="st-opts" id="stModel" dir="ltr"></div></div>
+    <button class="btn st-gen" id="stGenBtn" onclick="stToggleGenerate()">✦ ولّد الفيديو</button>
+    <p class="muted" style="font-size:12px;margin:10px 0 0">480p · التوليد كيستعمل رصيد حساب Pollinations ديالك · <a href="#" onclick="stOpenKey();return false" style="color:#c4b5fd">إعدادات API</a></p>
+   </div>
+   <div class="panel st-preview">
+    <div class="st-ptop"><span id="stState">المعاينة</span><span dir="ltr" id="stMeta">16:9 / 4s</span></div>
+    <div class="st-stage" id="stStage"><div class="st-empty">الفيديو ديالك غادي يظهر هنا<br><small>اكتب برومبت واضغط «ولّد الفيديو»</small></div></div>
+    <div class="actions"><button class="btn ghost small" onclick="stCopy()">نسخ البرومبت</button><a class="btn ghost small hidden" id="stDownload" download="video.mp4">تحميل MP4</a></div>
+    <div class="st-error hidden" id="stError" role="alert"><span id="stErrorText"></span> <button class="btn small" id="stRetry" onclick="stGenerate()">عاود</button></div>
+   </div>
+  </div>
+  <div class="panel">
+   <h2 style="font-size:18px">أسئلة قبل ما تبدا</h2>
+   <details open><summary>واش الموقع مجاني؟</summary><p class="muted">الواجهة مجانية. توليد فيديو جديد كيستعمل رصيد حساب API ديالك عند Pollinations، والثمن كيتبدل حسب المزود والموديل.</p></details>
+   <details><summary>علاش خاصني API Key؟</summary><p class="muted">باش الفيديو يتولّد فعلاً من البرومبت ديالك. كنقبلو غير Publishable Key اللي كيبدا بـ pk_.</p></details>
+   <details><summary>فين كيتسايفو الفيديوهات؟</summary><p class="muted">الفيديو المولّد كيبقى فالجلسة الحالية غير. حمّل MP4 قبل ما تسد الصفحة. المفتاح كيتسايف غير فهاد المتصفح.</p></details>
+  </div>
+ </section>
+ <section id="page-create" class="hidden">
+  <div class="panel">
+   <div class="eyebrow">AI STUDIO</div><h2>🪄 صناعة فيديو بالذكاء الاصطناعي</h2>
+   <p class="muted">كتب الفكرة ديالك، واختار إعدادات الفيديو. هاد الواجهة كتجهز ليك الـprompt؛ ما كتولدش الفيديو بوحدها حتى تربط API حقيقية.</p>
+   <div class="formgrid">
+    <div class="field full"><label for="prompt">Prompt — لصق البرومبت هنا</label><textarea id="prompt" placeholder="لسّق هنا البرومبت اللي جبت من شي AI، أو كتب الفكرة ديالك..."></textarea><small class="muted">الموقع غادي يرتّب البرومبت ويزيد ليه تفاصيل مفيدة. هاد التحسين محلي وما كيحتاجش API.</small></div>
+    <div class="field"><label for="styleSelect">الستايل</label><select id="styleSelect"><option>سينمائي واقعي</option><option>أنمي</option><option>خيال علمي</option><option>كرتون ثلاثي الأبعاد</option><option>فيديو إعلاني</option><option>طبيعة</option></select></div>
+    <div class="field"><label for="ratio">الأبعاد</label><select id="ratio"><option>16:9 أفقي</option><option>9:16 عمودي</option><option>1:1 مربع</option></select></div>
+    <div class="field full"><label for="provider">خدمة التوليد (رابط اختياري)</label><input id="provider" type="url" placeholder="https://... رابط خدمة AI إن كانت عندك"></div>
+   </div>
+   <div class="actions"><button class="btn" id="enhanceBtn" onclick="preparePrompt()">✨ حسّن بالذكاء الاصطناعي</button><button class="btn ghost" onclick="openAIProvider()">فتح أداة AI</button></div>
+   <p id="aiStatus" class="muted" aria-live="polite" style="margin-top:14px"></p><div id="promptResult" class="hidden" style="margin-top:18px"><div class="section-head"><h2 style="font-size:17px">البرومبت المحسّن</h2><small>راجع النتيجة قبل ما تستعملها</small></div><div class="notice" id="promptText" style="white-space:pre-wrap"></div><div class="actions"><button class="btn small" onclick="copyPrompt()">نسخ البرومبت</button><button class="btn ghost small" onclick="useEnhancedPrompt()">استعماله فخانة البرومبت</button></div></div>
+   <p class="muted" style="font-size:12px">ملاحظة: ما تدخلش API key ديالك فهاد الصفحة؛ المفاتيح خاصها تبقى فالسيرفر.</p>
+  </div>
+ </section>
+ <section id="page-upload" class="hidden">
+  <div class="panel"><h2>⬆️ رفع فيديو</h2><div class="notice">الرفع هنا للتجربة على نفس الجهاز والمتصفح فقط. الملفات ما كتطلعش تلقائياً للإنترنت وما كيشوفهاش أصحاب الأجهزة الأخرى. للنشر الحقيقي خاص تخزين سحابي وخلفية آمنة.</div>
+   <form id="uploadForm" class="formgrid" style="margin-top:16px">
+    <div class="field full"><label for="videoFile">اختار فيديو من جهازك</label><input id="videoFile" type="file" accept="video/*" required></div>
+    <div class="field"><label for="videoTitle">عنوان الفيديو</label><input id="videoTitle" maxlength="100" placeholder="عنوان الفيديو" required></div>
+    <div class="field"><label for="videoCategory">التصنيف</label><select id="videoCategory"><option>AI Art</option><option>أنمي</option><option>خيال علمي</option><option>ألعاب</option><option>تعليمي</option><option>كوميديا</option><option>أخرى</option></select></div>
+    <div class="field full"><label for="videoDesc">وصف (اختياري)</label><textarea id="videoDesc" placeholder="شنو كيميز الفيديو؟"></textarea></div>
+    <div class="field full"><button class="btn" type="submit">إضافة للمكتبة المحلية</button></div>
+   </form>
+   <div id="uploadStatus" class="muted" aria-live="polite"></div>
+  </div>
+ </section>
+ <section id="page-account" class="hidden">
+  <div class="panel"><h2>👤 الحساب ديالي</h2><div class="notice">نسخة العرض كتخزن الاسم محلياً فهاد المتصفح فقط. تسجيل الدخول الحقيقي، حماية الحسابات، ومزامنة المستخدمين خاصهم Backend ومزوّد مصادقة.</div>
+   <form id="accountForm" class="formgrid" style="margin-top:16px"><div class="field"><label for="displayName">الاسم المعروض</label><input id="displayName" maxlength="40" placeholder="اسمك"></div><div class="field"><label for="email">البريد الإلكتروني (اختياري)</label><input id="email" type="email" placeholder="name@example.com"></div><div class="field full"><button class="btn" type="submit">حفظ على هاد الجهاز</button></div></form><p id="accountStatus" class="muted"></p>
+  </div>
+ </section>
+ <section id="page-admin" class="hidden">
+  <div class="panel"><h2>🛡️ لوحة تحكم المدير — نموذج أولي</h2><div class="notice">هاد الصفحة للعرض فقط وما فيهاش صلاحيات مدير حقيقية. ما تنشرهاش على أنها لوحة محمية؛ أي زائر يقدر يشوفها حتى نضيفو تسجيل دخول وصلاحيات فالخادم.</div>
+   <div class="grid" style="margin-top:16px;grid-template-columns:repeat(2,minmax(0,1fr))"><div class="card"><div class="cardbody"><div class="muted">الفيديوهات فهاد الجلسة</div><h2 id="adminVideos">0</h2></div></div><div class="card"><div class="cardbody"><div class="muted">الحدود</div><h2>Demo</h2></div></div></div>
+   <div class="actions"><button class="btn ghost" onclick="exportCatalog()">تصدير لائحة الفيديوهات JSON</button><button class="btn ghost" onclick="clearLocalVideos()">مسح فيديوهات هاد الجلسة</button></div>
+  </div>
+ </section>
+ <section id="page-watch" class="hidden">
+  <div class="panel"><button class="btn ghost small" onclick="showPage('videos')">← رجوع للمكتبة</button><h2 id="watchTitle" style="margin-top:18px"></h2><div class="video-frame" id="watchFrame"></div><p id="watchDesc" class="muted"></p><span class="pill" id="watchCategory"></span></div>
+ </section>
+ <div id="toast" class="hidden" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:30;background:#29203e;border:1px solid #6b4ca0;padding:12px 18px;border-radius:12px;max-width:90%;text-align:center"></div>
+</main>
+<footer><div class="wrap footerrow"><span><b>AI VIDEO HUB</b> · عالم الإبداع بالذكاء الاصطناعي</span><span>نسخة تجريبية مجانية · ما كاين لا توليد AI ولا تخزين سحابي بلا ربط الخدمات</span></div></footer>
+<dialog id="stKeyDialog"><div class="modalhead"><h2>ربط توليد الفيديو</h2><button class="close" onclick="document.getElementById('stKeyDialog').close()">✕</button></div>
+<p class="muted">كنستعملو Pollinations. دخل <b>Publishable Key</b> ديالك (كيبدا بـ <code>pk_</code>). التوليد كيستعمل رصيد الحساب ديالك.</p>
+<p><a href="https://enter.pollinations.ai/keys" target="_blank" rel="noopener" style="color:#c4b5fd">صاوب أو جيب API Key ↗</a></p>
+<div class="field"><label for="stKeyInput">Publishable API Key</label><input id="stKeyInput" type="password" dir="ltr" autocomplete="off" placeholder="pk_••••••••••••••••"></div>
+<label class="muted" style="display:block;margin:8px 0;font-size:13px"><input type="checkbox" onchange="document.getElementById('stKeyInput').type=this.checked?'text':'password'"> إظهار المفتاح</label>
+<div class="st-error hidden" id="stKeyError" role="alert"></div>
+<div class="notice">كيتسايف غير فـ localStorage ديال هاد المتصفح. ما تدخلش مفتاح سري كيبدا بـ sk_ — غادي نرفضوه.</div>
+<div class="actions"><button class="btn" onclick="stSaveKey()">حفظ وربط API</button><button class="btn ghost" onclick="stClearKey()">مسح المفتاح</button></div></dialog>
+<dialog id="accountDialog"><div class="modalhead"><h2>الحساب ديالي</h2><button class="close" onclick="document.getElementById('accountDialog').close()">✕</button></div><p class="muted">اختار الحساب باش تكمل التجربة.</p><button class="btn" onclick="document.getElementById('accountDialog').close();showPage('account')">إعداد الحساب</button></dialog>
+<script>
+const demoVideos=[
+{id:'d1',title:'عالم مستقبلي من صنع الذكاء الاصطناعي',category:'خيال علمي',creator:'AI Studio',views:'12.4K',duration:'0:18',img:'https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80',desc:'لقطات مستقبلية وألوان سينمائية.',url:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+{id:'d2',title:'طبيعة ساحرة بأسلوب سينمائي',category:'AI Art',creator:'Dream Lab',views:'8.2K',duration:'0:15',img:'https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=80',desc:'مثال تجريبي لفيديو الطبيعة.',url:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+{id:'d3',title:'مدينة النيون في الليل',category:'خيال علمي',creator:'Neon World',views:'6.8K',duration:'0:12',img:'https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80',desc:'تصور بصري مستقبلي.',url:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+{id:'d4',title:'إلهام بصري للمبدعين',category:'تعليمي',creator:'Create AI',views:'4.1K',duration:'0:20',img:'https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=80',desc:'عينة تعليمية للتصميم وصناعة المحتوى.',url:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+{id:'d5',title:'مشهد خيالي فوق الغيوم',category:'AI Art',creator:'Sky Maker',views:'3.9K',duration:'0:14',img:'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80',desc:'عينة تجريبية بمشهد طبيعي.',url:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+{id:'d6',title:'رحلة إلى الفضاء',category:'خيال علمي',creator:'Cosmo AI',views:'9.1K',duration:'0:16',img:'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=900&q=80',desc:'تصور بصري للفضاء.',url:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+{id:'d7',title:'أفكار لمحتوى قصير',category:'تعليمي',creator:'Studio One',views:'2.7K',duration:'0:11',img:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80',desc:'إلهام لأفكار فيديوهات قصيرة.',url:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'},
+{id:'d8',title:'ألوان وأشكال فنية',category:'AI Art',creator:'Pixel Dream',views:'5.6K',duration:'0:13',img:'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=900&q=80',desc:'عينة فنية للعرض.',url:'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4'}
+];
+let videos=[...demoVideos], activeCategory='الكل', currentVideo=null, localUrls=[];
+const cats=['الكل','AI Art','أنمي','خيال علمي','ألعاب','تعليمي','كوميديا','أخرى'];
+function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function cardHTML(v){return `<article class="card"><button style="display:block;width:100%;text-align:inherit;background:none;color:inherit;padding:0" onclick="watchVideo('${escapeHTML(v.id)}')"><div class="thumb"><img loading="lazy" src="${escapeHTML(v.img)}" alt="" onerror="this.style.display='none'"><div class="play">▶</div><span class="duration">${escapeHTML(v.duration||'فيديو')}</span></div><div class="cardbody"><h3>${escapeHTML(v.title)}</h3><div class="meta"><span>${escapeHTML(v.creator||'مستخدم')}</span><span>${escapeHTML(v.views||'جديد')} مشاهدة</span></div><span class="tag">${escapeHTML(v.category)}</span></div></button></article>`}
+function renderGrid(target,list){document.getElementById(target).innerHTML=list.length?list.map(cardHTML).join(''):'<div class="empty">ما لقينا حتى فيديو بهاد البحث. جرّب كلمة أخرى أو تصنيف آخر.</div>'}
+function render(){const q=document.getElementById('searchInput').value.trim().toLowerCase();let list=videos.filter(v=>(activeCategory==='الكل'||v.category===activeCategory)&&(`${v.title} ${v.category} ${v.creator} ${v.desc||''}`).toLowerCase().includes(q));renderGrid('videosGrid',list);renderGrid('featuredGrid',videos.slice(0,4));document.getElementById('videoCount').textContent=videos.length+' فيديو';document.getElementById('adminVideos').textContent=videos.length;document.getElementById('filters').innerHTML=cats.map(c=>`<button class="${c===activeCategory?'active':''}" onclick="setCategory('${c.replace(/'/g,"\\'")}')">${c}</button>`).join('')}
+function setCategory(c){activeCategory=c;render()}
+function showPage(page){document.querySelectorAll('main>section').forEach(s=>s.classList.add('hidden'));const el=document.getElementById('page-'+page);if(el)el.classList.remove('hidden');document.querySelectorAll('#mainNav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));if(page==='videos'||page==='home'||page==='admin')render();window.scrollTo({top:0,behavior:'smooth'})}
+function watchVideo(id){const v=videos.find(x=>x.id===id);if(!v)return;currentVideo=v;document.getElementById('watchTitle').textContent=v.title;document.getElementById('watchDesc').textContent=v.desc||'';document.getElementById('watchCategory').textContent=v.category;let frame=document.getElementById('watchFrame');frame.innerHTML='';if(v.url){if(v.url.startsWith('blob:')||/\.(mp4|webm|ogg)(\?.*)?$/i.test(v.url)){const video=document.createElement('video');video.controls=true;video.playsInline=true;video.src=v.url;frame.appendChild(video)}else{const p=document.createElement('p');p.className='muted';p.textContent='هاد الرابط ما باينش رابط فيديو مباشر. تقدر تفتح المصدر من الرابط التالي: ';const a=document.createElement('a');a.href=v.url;a.target='_blank';a.rel='noopener';a.textContent='فتح الفيديو';p.appendChild(a);frame.appendChild(p)}}showPage('watch')}
+function openAccount(){document.getElementById('accountDialog').showModal()}
+function toast(s){const t=document.getElementById('toast');t.textContent=s;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),2600)}
+document.getElementById('searchInput').addEventListener('input',()=>{render();if(!document.getElementById('page-videos').classList.contains('hidden')){}else if(document.getElementById('searchInput').value.trim())showPage('videos')});
+async function preparePrompt(){
+ const raw=document.getElementById('prompt').value.trim();
+ if(!raw){toast('لسّق البرومبت أو كتب الفكرة أولاً');return}
+ const button=document.getElementById('enhanceBtn');
+ const status=document.getElementById('aiStatus');
+ button.disabled=true;
+ button.textContent='⏳ كنحسّن البرومبت...';
+ status.textContent='كنرسل البرومبت للخادم الآمن باش يعاود يصيغو بالذكاء الاصطناعي...';
+ try{
+  const response=await fetch('/api/enhance',{
+   method:'POST',
+   headers:{'Content-Type':'application/json'},
+   body:JSON.stringify({
+    prompt:raw,
+    style:document.getElementById('styleSelect').value,
+    ratio:document.getElementById('ratio').value
+   })
+  });
+  const data=await response.json().catch(()=>({}));
+  if(!response.ok) throw new Error(data.error||'وقع مشكل فالخدمة. تأكد من إعداد API key ونشر الخادم.');
+  if(!data.enhancedPrompt) throw new Error('الخدمة ما رجعاتش برومبت صالح.');
+  document.getElementById('promptText').textContent=data.enhancedPrompt;
+  document.getElementById('promptResult').classList.remove('hidden');
+  status.textContent='تم تحسين البرومبت بواسطة AI. راجع النتيجة قبل الاستعمال.';
+ }catch(err){
+  status.textContent='ما قدرناش نوصلو لخدمة الذكاء الاصطناعي: '+(err.message||'خطأ غير معروف')+' — تأكد أن الموقع منشور مع دالة /api/enhance ومفتاح GEMINI_API_KEY مضبوط فالخادم.';
+ }finally{
+  button.disabled=false;
+  button.textContent='✨ حسّن بالذكاء الاصطناعي';
+ }
+}
+function useEnhancedPrompt(){document.getElementById('prompt').value=document.getElementById('promptText').textContent;toast('تحط البرومبت المحسّن فخانة البرومبت')}
+async function copyPrompt(){try{await navigator.clipboard.writeText(document.getElementById('promptText').textContent);toast('تنسخ البرومبت بنجاح')}catch(e){toast('حدد البرومبت ونسخو يدوياً')}}
+function openAIProvider(){let u=document.getElementById('provider').value.trim();if(!u){toast('دخل رابط أداة AI عندك أو استعمل نسخ الوصف');return}try{const url=new URL(u);if(!['http:','https:'].includes(url.protocol))throw Error();window.open(url.href,'_blank','noopener')}catch(e){toast('دخل رابط صحيح كيبدأ بـ https://')}}
+document.getElementById('uploadForm').addEventListener('submit',e=>{e.preventDefault();const f=document.getElementById('videoFile').files[0];if(!f)return;if(!f.type.startsWith('video/')){toast('اختار ملف فيديو صحيح');return}if(f.size>150*1024*1024){toast('الفيديو كبير بزاف. الحد التجريبي 150MB');return}const url=URL.createObjectURL(f);localUrls.push(url);videos.unshift({id:'u'+Date.now(),title:document.getElementById('videoTitle').value.trim(),category:document.getElementById('videoCategory').value,creator:localStorage.getItem('aivh_name')||'أنت',views:'0',duration:'محلي',img:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80',desc:document.getElementById('videoDesc').value.trim()||'فيديو مرفوع محلياً',url,local:true});render();document.getElementById('uploadStatus').textContent='تزاد الفيديو للمكتبة فهاد الصفحة. ملاحظة: ما ترفعش للسيرفر.';e.target.reset();toast('تزاد الفيديو محلياً');showPage('videos')});
+document.getElementById('accountForm').addEventListener('submit',e=>{e.preventDefault();const n=document.getElementById('displayName').value.trim();localStorage.setItem('aivh_name',n);localStorage.setItem('aivh_email',document.getElementById('email').value.trim());document.getElementById('accountBtn').textContent=n?n.slice(0,1).toUpperCase():'؟';document.getElementById('accountStatus').textContent='تحفظ الاسم على هاد الجهاز فقط.';toast('تحفظ الحساب المحلي')});
+function exportCatalog(){const data=videos.map(({id,title,category,creator,views,duration,img,desc,url})=>({id,title,category,creator,views,duration,img,desc,url}));const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ai-video-hub-catalog.json';a.click();URL.revokeObjectURL(a.href)}
+function clearLocalVideos(){const removed=videos.filter(v=>v.local);videos=videos.filter(v=>!v.local);localUrls.forEach(u=>URL.revokeObjectURL(u));localUrls=[];render();toast('تم مسح '+removed.length+' فيديو محلي')}
+const savedName=localStorage.getItem('aivh_name');if(savedName){document.getElementById('accountBtn').textContent=savedName.slice(0,1).toUpperCase();document.getElementById('displayName').value=savedName;document.getElementById('email').value=localStorage.getItem('aivh_email')||''}
+/* ===== Studio: توليد الفيديو (Pollinations) ===== */
+const ST_STYLES={cinematic:{label:'سينمائي',suffix:'cinematic composition, dramatic natural lighting, subtle film grain, controlled camera movement, atmospheric depth'},realistic:{label:'واقعي',suffix:'photorealistic, natural skin and material textures, true-to-life colors, physically accurate motion'},anime:{label:'أنمي',suffix:'premium hand-drawn anime aesthetic, expressive motion, detailed painted backgrounds, cinematic lighting'},documentary:{label:'وثائقي',suffix:'observational documentary style, natural light, authentic textures, restrained camera movement'}};
+const ST_MODELS={'bytedance/seedance-2.0-fast':'Seedance 2.0 Fast','bytedance/seedance-1-pro-fast':'Seedance Pro Fast'};
+const ST_SAMPLES=[{prompt:'لقطة جوية سينمائية فوق كثبان الصحراء المغربية وقت الشروق، مسافر بوحدو بقماش نيلي كيمشي فوق حافة الكثيب، ريح خفيفة كتطير الرمل، كاميرا كتقرب بشوية، واقعية وضوء ذهبي.',aspect:'16:9'},{prompt:'بحر مضيء بالكائنات الحية فالليل، موجات فيروزية كتلمع فوق رمل بركاني غامق، جزيئات ضوء فالهواء، كاميرا قريبة من الماء، أجواء هادئة وواقعية.',aspect:'16:9'}];
+const st={style:'cinematic',aspect:'16:9',duration:4,model:'bytedance/seedance-2.0-fast',loading:false,controller:null,objectUrl:'',lastPrompt:'',timer:null};
+function stKey(){try{return localStorage.getItem('mashhad_pk')||''}catch(e){return ''}}
+function stRenderKey(){document.getElementById('stKeyLabel').textContent=stKey()?'API مربوط':'ربط API'}
+function stOpts(id,items,cur,onPick){const box=document.getElementById(id);box.innerHTML='';items.forEach(([v,l])=>{const b=document.createElement('button');b.textContent=l;b.disabled=st.loading;if(String(v)===String(cur))b.className='sel';b.onclick=()=>{onPick(v);stRenderOpts()};box.appendChild(b)})}
+function stRenderOpts(){stOpts('stStyle',Object.entries(ST_STYLES).map(([k,v])=>[k,v.label]),st.style,v=>st.style=v);stOpts('stAspect',['16:9','9:16','1:1'].map(x=>[x,x]),st.aspect,v=>st.aspect=v);stOpts('stDuration',[4,5].map(x=>[x,x+' ث']),st.duration,v=>st.duration=Number(v));stOpts('stModel',Object.entries(ST_MODELS),st.model,v=>st.model=v);document.getElementById('stMeta').textContent=st.aspect+' / '+st.duration+'s'}
+function stShowError(msg,canRetry){const e=document.getElementById('stError');document.getElementById('stErrorText').textContent=msg;document.getElementById('stRetry').classList.toggle('hidden',!canRetry);e.classList.toggle('hidden',!msg)}
+function stSetPrompt(v){document.getElementById('stPrompt').value=v;document.getElementById('stCount').textContent=v.length+' / 800';stShowError('')}
+function stSample(i){stSetPrompt(ST_SAMPLES[i].prompt);st.aspect=ST_SAMPLES[i].aspect;stRenderOpts()}
+function stAddDetails(){const el=document.getElementById('stPrompt');const add='كاميرا كتقرب بشوية، إضاءة سينمائية طبيعية، تفاصيل واقعية، عمق فالصورة، حركة سلسة.';const v=el.value.trim();stSetPrompt((v?v+'، '+add:'مشهد سينمائي، '+add).slice(0,800))}
+function stOpenKey(){document.getElementById('stKeyInput').value=stKey();document.getElementById('stKeyError').classList.add('hidden');document.getElementById('stKeyDialog').showModal()}
+function stSaveKey(){const v=document.getElementById('stKeyInput').value.trim();const err=document.getElementById('stKeyError');if(v&&!v.startsWith('pk_')){err.textContent=v.startsWith('sk_')?'هادا مفتاح سري (sk_) وما خاصوش يتحط فالمتصفح. استعمل Publishable Key اللي كيبدا بـ pk_.':'دخل مفتاح صحيح كيبدا بـ pk_ من enter.pollinations.ai.';err.classList.remove('hidden');return}try{if(v)localStorage.setItem('mashhad_pk',v);else localStorage.removeItem('mashhad_pk')}catch(e){}stRenderKey();document.getElementById('stKeyDialog').close();toast(v?'تسايف المفتاح فهاد المتصفح':'تمسح المفتاح')}
+function stClearKey(){document.getElementById('stKeyInput').value='';stSaveKey()}
+function stSetLoading(on){st.loading=on;const b=document.getElementById('stGenBtn');b.textContent=on?'✕ إيقاف التوليد':'✦ ولّد الفيديو';b.classList.toggle('cancel',on);document.getElementById('stPrompt').disabled=on;stRenderOpts();clearInterval(st.timer);const state=document.getElementById('stState');if(on){const t0=Date.now();const stage=document.getElementById('stStage');stage.innerHTML='<div class="st-loading"><div class="st-spin"></div>الفكرة كتولّي مشهد…<br><small>التوليد يقدر ياخذ بضع دقائق. خلّي الصفحة محلولة.</small><br><b dir="ltr" id="stElapsed">00:00</b></div>';state.textContent='كنولّدو دابا';st.timer=setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000);const el=document.getElementById('stElapsed');if(el)el.textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')},1000)}}
+function stToggleGenerate(){if(st.loading){if(st.controller)st.controller.abort();return}stGenerate()}
+async function stGenerate(){
+ const p=document.getElementById('stPrompt').value.trim();
+ if(p.length<8){stShowError('زيد شوية ديال التفاصيل فالبرومبت باش يخرج المشهد واضح.',false);return}
+ const key=stKey();
+ if(!key){stShowError('قبل التوليد، زيد Publishable API Key ديالك.',false);stOpenKey();return}
+ if(st.controller)st.controller.abort();
+ const controller=new AbortController();st.controller=controller;let userStopped=false;controller.signal.addEventListener('abort',()=>{});
+ const full=p+'. '+ST_STYLES[st.style].suffix+'. No text, no subtitles, no logos.';
+ const url=new URL('https://gen.pollinations.ai/video/'+encodeURIComponent(full));
+ url.searchParams.set('model',st.model);url.searchParams.set('duration',String(st.duration));url.searchParams.set('resolution','480p');url.searchParams.set('aspectRatio',st.aspect);url.searchParams.set('safe','true');url.searchParams.set('key',key);
+ stShowError('');document.getElementById('stDownload').classList.add('hidden');stSetLoading(true);
+ let timedOut=false;const timeout=setTimeout(()=>{timedOut=true;controller.abort()},300000);
+ try{
+  const res=await fetch(url,{signal:controller.signal});
+  if(!res.ok){
+   if(res.status===401||res.status===403)throw new Error('المفتاح ماشي صحيح أو ما عندوش صلاحية توليد الفيديو. راجعو فإعدادات API.');
+   if(res.status===402)throw new Error('ما بقاش رصيد كافي فالحساب ديالك باش يتولّد هاد الفيديو.');
+   if(res.status===429)throw new Error('الطلبات بزاف دابا. تسنى شوية وعاود المحاولة.');
+   const txt=await res.text().catch(()=>'');throw new Error((txt||'').slice(0,180)||('وقع خطأ عند المزود ('+res.status+').'));
+  }
+  let next='';const ct=res.headers.get('content-type')||'';
+  if(ct.includes('application/json')){const d=await res.json();next=(d&&d.data&&d.data[0]&&d.data[0].url)||(d&&d.url)||'';if(!next)throw new Error('المزود ما رجّعش رابط الفيديو. عاود المحاولة.')}
+  else{const blob=await res.blob();if(!blob.size)throw new Error('الفيديو رجع خاوي. عاود المحاولة ببرومبت آخر.');next=URL.createObjectURL(blob)}
+  if(st.objectUrl&&st.objectUrl!==next)URL.revokeObjectURL(st.objectUrl);
+  st.objectUrl=next.startsWith('blob:')?next:'';st.lastPrompt=p;
+  const stage=document.getElementById('stStage');stage.innerHTML='';const v=document.createElement('video');v.className='result-video';v.src=next;v.controls=true;v.autoplay=true;v.playsInline=true;stage.appendChild(v);
+  const dl=document.getElementById('stDownload');dl.href=next;dl.classList.remove('hidden');
+  document.getElementById('stState').textContent='الفيديو واجد';toast('الفيديو واجد، صحّة!');
+ }catch(err){
+  const stage=document.getElementById('stStage');stage.innerHTML='<div class="st-empty">الفيديو ديالك غادي يظهر هنا<br><small>اكتب برومبت واضغط «ولّد الفيديو»</small></div>';document.getElementById('stState').textContent='المعاينة';
+  if(controller.signal.aborted)stShowError(timedOut?'التوليد طول بزاف أو توقّف. عاود المحاولة من بعد شوية.':'توقّف التوليد. تقدر تبدل البرومبت وتعاود.',timedOut);
+  else stShowError(err&&err.message==='Failed to fetch'?'ما قدرناش نوصلو لخدمة التوليد. تأكد من الإنترنت أو عاود من بعد شوية.':(err&&err.message)||'وقع خطأ ماشي متوقع. عاود المحاولة.',true);
+ }finally{clearTimeout(timeout);stSetLoading(false)}
+}
+async function stCopy(){const v=st.lastPrompt||document.getElementById('stPrompt').value;if(!v.trim())return;try{await navigator.clipboard.writeText(v);toast('تنسخ البرومبت')}catch(e){toast('تعذر النسخ')}}
+document.getElementById('stPrompt').addEventListener('input',e=>{document.getElementById('stCount').textContent=e.target.value.length+' / 800';stShowError('')});
+stRenderOpts();stRenderKey();
+
+render();
+</script>
+</body>
+</html>
